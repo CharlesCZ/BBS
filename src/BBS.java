@@ -17,7 +17,12 @@ public class BBS {
     public int getM() {
         return m;
     }
+    public void setPandQandM(int p, int q){
+this.p=p;
+this.q=q;
+m = p * q;
 
+    }
 
     public void setM(int l) {
         List<Integer> pierwsze = Prime.primeNumbersBruteForce(l);
@@ -77,7 +82,7 @@ public class BBS {
 
 
         x=  ((x*x)%m);
-
+       System.out.println(x);
         return x;
    }
 
@@ -108,6 +113,7 @@ public class BBS {
     public List<Byte> getKey() {
         return key;
     }
+
 
     public int anyX(int i){
        BigDecimal decimalX0=new BigDecimal(x0);

@@ -5,14 +5,17 @@ public class Main {
 
     public static void main(String[] args) {
         BBS bbs=new BBS();
-        bbs.setM(12);
-bbs.setSeed(53);
+        //bbs.setM(12);
+        bbs.setPandQandM(20359,43063);
+        bbs.setSeed(1993);
+//bbs.setSeed(53);
 bbs.setKey(2500);
 
 
-        List<Byte> lista=new LinkedList<>();
-        lista.add((byte)7);
 
-        System.out.println(Test.pojedynczy(lista));
+        System.out.println(Test.pojedynczy(bbs.getKey()));
+        System.out.println(Test.serii(bbs.getKey()));
+        System.out.println(Test.pojedynczy(bbs.getKey()));
+
     }
 }
