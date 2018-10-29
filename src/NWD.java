@@ -1,8 +1,8 @@
 public class NWD {
 
-    public static int nwd(int a,int b){
+    public static long nwd(long a,long b){
 
-        int naj=1;
+        long naj=1;
         if(a>b)
             for(int i=2;i<a;++i)
             {

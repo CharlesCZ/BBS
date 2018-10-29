@@ -39,7 +39,7 @@ for(int j=0;j<key.size();++j) {
         for(int j=0;j<key.size();++j) {
             byte temp = key.get(j);
             for (int i = 0; i < 8; ++i) {
-                if (((temp >> i) & 1) > 0)
+                if (((temp >> i) & 1) == 1)
                     ++ones;
                 else{
                     ++seria[ones];
@@ -47,27 +47,31 @@ for(int j=0;j<key.size();++j) {
                 }
             }
         }
+        System.out.println("seriee");
+        for(int i=0;i<16;++i)
+            System.out.println("seria"+" "+i+" "+seria[i]);
 
-
+        System.out.println("serii 1"+ "  "+seria[1]);
         if(  !(2315 <= seria[1] && seria[1] <= 2685)  )
             return Boolean.FALSE;
-
+        System.out.println("serii 2"+ "  "+seria[2]);
         if(  !(1114 <= seria[2] && seria[2] <= 1386)  )
             return Boolean.FALSE;
-
+        System.out.println("serii 3"+ "  "+seria[3]);
         if(  !(527 <= seria[3] && seria[3] <= 723)  )
             return Boolean.FALSE;
-
+        System.out.println("serii 4"+ "  "+seria[4]);
         if(  !(240<= seria[4] && seria[4] <= 384)  )
             return Boolean.FALSE;
-
+        System.out.println("serii 5"+ "  "+seria[5]);
         if(  !(103<= seria[5] && seria[5] <= 209)  )
             return Boolean.FALSE;
 
         for(int i=6;i<26;++i)
-        if(  !(103<= seria[i] && seria[i] <= 209)  )
+        if(  !(103<= seria[i] && seria[i] <= 209)  ) {
+            System.out.println("serii "+i+ "  "+seria[i]);
             return Boolean.FALSE;
-
+        }
 
         if(  0< seria[26]  ) {
             System.out.println("dlugiej serii");

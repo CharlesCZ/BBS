@@ -7,17 +7,17 @@ import java.util.Scanner;
 
 public class BBS {
 
-    private int m;
+    private long m;
     private List<Byte> key = new ArrayList<>();
-    private int seed;
-    private int x0;
-    private int x;
-    private int p, q;
+    private long seed;
+    private long x0;
+    private long x;
+    private long p, q;
 
-    public int getM() {
+    public long getM() {
         return m;
     }
-    public void setPandQandM(int p, int q){
+    public void setPandQandM(long p, long q){
 this.p=p;
 this.q=q;
 m = p * q;
@@ -48,13 +48,13 @@ m = p * q;
 
 
 
-    public int getSeed() {
+    public long getSeed() {
         return seed;
     }
 
 
 
-    public void setSeed(int s) {
+    public void setSeed(long s) {
 
         try {
             if (NWD.nwd(s, getM()) != 1)
@@ -78,30 +78,31 @@ m = p * q;
 
 
 
-   public int nextX(){
+   public long nextX(){
 
 
         x=  ((x*x)%m);
-       System.out.println(x);
+      // System.out.println(x);
         return x;
    }
 
    public byte getByteIteration(){
 
         byte temp=0;
-        for(int i=0;i<7;++i)
+        for(int i=0;i<8;++i)
         {
-
+            System.out.println(x+" "+(x & 1));
             temp=(byte)  (  ((x & 1) << i) | temp  );
+
             nextX();
 
         }
-       temp=(byte)  (  ((x & 1) << 7) | temp  ); //dla osmego bitu
 
+       System.out.println();
         return temp;
    }
 
-   public void setKey(int amount){
+   public void setKey(long amount){
         //20000 to amount 2500
         for(int i=0;i<amount;++i)
             key.add(getByteIteration());
@@ -115,20 +116,25 @@ m = p * q;
     }
 
 
-    public int anyX(int i){
+    public long anyX(int i){
        BigDecimal decimalX0=new BigDecimal(x0);
-     return   decimalX0.pow((int)Math.pow(2,i) %((p-1)*(q-1))).remainder(new BigDecimal(m)).intValue();
+     return   decimalX0.pow((int) (Math.pow(2,i) %((p-1)*(q-1)))).remainder(new BigDecimal(m)).longValue();
 
        // return  (int)     (Math.pow( x0, Math.pow(2,i) %((p-1)*(q-1)) ) % m);
     }
 
-    public int getX0() {
+    public long getX0() {
         return x0;
     }
 
-    public void setX0(int x0) {
+    public void setX0(long x0) {
         this.x0 = x0;
     }
 
+public void print(){
 
+        for(int i=0;i<key.size();++i)
+            System.out.println(key.get(i));
+
+    }
 }
