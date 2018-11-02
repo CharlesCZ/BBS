@@ -1,5 +1,9 @@
 # BBS
-key generator
+
+Blum Blum Shub (B.B.S.) is a pseudorandom number generator proposed in 1986 by Lenore Blum, Manuel Blum and Michael Shub[1] that is derived from Michael O. Rabin's one-way function.
+
+
+
 The MIT License
 
 Copyright (c) CharlesCZ
